@@ -56,35 +56,35 @@ filterer(filter) {
   if (filter === 'none') {
     return
   } else if (filter === 'chocolate') {
-    filterer = 'filtered by: chocolate';
+    filterer = 'filtered by chocolate';
     return filterer
   } else if (filter === 'fruity') {
-    filterer = 'filtered by: fruity';
+    filterer = 'filtered by fruity';
     return filterer
   } else if (filter === 'peanutyalmondy') {
-    filterer = 'filtered by: nutty';
+    filterer = 'filtered by nutty';
     return filterer
   } else if (filter === 'nougat') {
-    filterer = 'filtered by: nougat';
+    filterer = 'filtered by nougat';
     return filterer
   } else if (filter === 'crispedricewafer') {
-    filterer = 'filtered by: crisped rice / wafer';
+    filterer = 'filtered by crisped rice / wafer';
     return filterer
   } else if (filter === 'hard') {
-    filterer = 'filtered by: hard candy';
+    filterer = 'filtered by hard candy';
     return filterer
   } else if (filter === 'bar') {
-    filterer = 'filtered by: bar based';
+    filterer = 'filtered by bar based';
     return filterer
   } else if (filter === 'pluribus') {
-    filterer = 'filtered by: pieces';
+    filterer = 'filtered by pieces';
     return filterer
   }
 }
 
   render() {
 
-    let sorted = _.orderBy(this.props.candies, [this.props.sort], [this.props.order])
+    let sorted = _.orderBy(this.props.candies, [this.props.sortOrder[this.props.sort].sort], [this.props.sortOrder[this.props.sort].order])
 
 
     let filtered
@@ -122,8 +122,8 @@ filterer(filter) {
     return (<div className="bg-grey-orange  opacity-95 rounded-lg p-3 m-3">
       <div className="w-full h-10 text-white bg-black rounded-sm pt-1 px-16 ">
         <h2>
-          <span className="text-pink-hypsat">Candy</span> sorted by <span className="text-purple-hypsat">{this.sorter(this.props.sort)}</span>&nbsp;
-          {this.orderer(this.props.sort, this.props.order)}&nbsp;<span className="text-red">{this.filterer(this.props.filter)}</span>
+          <span className="text-pink-hypsat">Candy</span> sorted by <span className="text-purple-hypsat">{this.sorter(this.props.sortOrder[this.props.sort].sort)}</span>&nbsp;
+          {this.orderer(this.props.sortOrder[this.props.sort].sort, this.props.sortOrder[this.props.sort].order)}&nbsp;<span className="text-red">{this.filterer(this.props.filter)}</span>
         </h2>
       </div>
       <div className="flex">

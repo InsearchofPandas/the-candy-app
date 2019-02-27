@@ -15,9 +15,9 @@ class App extends Component {
     this.arrowUp = this.arrowUp.bind(this)
     this.arrowDown = this.arrowDown.bind(this)
     this.state = {
-      sort: 'competitorname',
-      order: 'asc',
+      sort: '0',
       filter: 'none',
+      sortOrder: [{sort: 'competitorname', order: "asc"}, {sort: 'winpercent', order: "desc"}, {sort: 'sugarpercent', order: "asc"}, {sort: 'pricepercent', order: "asc"},]
     }
   }
 
@@ -32,13 +32,16 @@ class App extends Component {
   }
 
   arrowUp() {
-    this.setState({order: 'asc'})
+    let up = this.state.sortOrder
+    up[this.state.sort].order = 'asc'
+    this.setState({sortOrder: up})
   }
 
   arrowDown() {
-    this.setState({order: 'desc'})
-  }
-
+    let down = this.state.sortOrder
+    down[this.state.sort].order = 'desc'
+    this.setState({sortOrder: down})
+}
   render() {
 
 return (<div className="h-screen bg-orange">
@@ -70,14 +73,14 @@ return (<div className="h-screen bg-orange">
 
         <div className="flex w-1/6 justify-start text-center bg-orange flex-col my-2">
 
-          <Sort order={this.state.order} sort={this.sort} arrowUp={this.arrowUp} arrowDown={this.arrowDown}/>
+          <Sort sortOrder={this.state.sortOrder} sortState={this.state.sort}  sort={this.sort} arrowUp={this.arrowUp} arrowDown={this.arrowDown}/>
 
           <Filter filter={this.filter}/>
 
         </div>
 
         <div className="w-5/6">
-          <Candylist candies={candies} filter={this.state.filter} order={this.state.order} sort={this.state.sort}/>
+          <Candylist candies={candies} filter={this.state.filter}  sort={this.state.sort} sortOrder={this.state.sortOrder}/>
         </div>
 
       </div>
