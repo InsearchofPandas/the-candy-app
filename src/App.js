@@ -3,8 +3,6 @@ import './css/tailwind.css';
 import Candylist from './components/Candylist/Candylist'
 import Sort from './components/Sort/Sort'
 import Filter from './components/Filter/Filter'
-
-const _ = require('lodash');
 const candies = require('./candy.json');
 
 class App extends Component {
@@ -89,12 +87,20 @@ return (<div className="h-screen bg-orange">
 
   </div>
 
-  <div className="bg-black text-white text-center py-2">
-    Fueld by &nbsp;
-    <a className="text-red" href="https://fivethirtyeight.com/features/the-ultimate-halloween-candy-power-ranking/" target="_blank">The Ultimate Halloween Candy Power Ranking</a>
+  <div className="bg-orange text-black text-center pt-8">
+    Fueled by &nbsp;
+    <a className="text-black no-underline" href="https://fivethirtyeight.com/features/the-ultimate-halloween-candy-power-ranking/" target="_blank">The Ultimate Halloween Candy Power Ranking</a>
     , using research and data provided by &nbsp;
-    <a className="text-red" href="https://fivethirtyeight.com/" target="_blank">fivethirtyeight.com</a>
+    <a className="text-black no-underline" href="https://fivethirtyeight.com/" target="_blank">fivethirtyeight.com</a>
   </div>
+  <footer class="flex justify-center flex-col lg:flex-row w-full bg-orange pt-4 pb-8">
+      <a href="https://kylehumphrey.com" target="_blank" rel="noopener noreferrer" className="text-black no-underline px-4">
+         Made by Kyle Humphrey
+      </a>
+      <a href="https://github.com/InsearchofPandas/the-candy-app" target="_blank" rel="noopener noreferrer" className="text-black no-underline px-4">
+        View Code on GitHub
+      </a>
+    </footer>
 </div>)
 }
 }
